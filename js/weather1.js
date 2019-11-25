@@ -27,7 +27,16 @@ $("#search_btn").click(function() {
         
         $('#city').html(city);
         $('#temp').html(temp);
-        $('#weather_background').css("background-image", "url(images/partly-cloudy.jpeg)")
+        
+        if (responseFromOW.weather[0].main === 'Clouds') {
+            $('#weather_background').css("background-image", "url(images/partly-cloudy.jpeg)");
+        } else if (responseFromOW.weather[0].main === 'Clear') {
+            $('#weather_background').css("background-image", "url(images/sunny.jpeg)");
+        }
+    
+        
+//        continue working here
+
     });
     
     
