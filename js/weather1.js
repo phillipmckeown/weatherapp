@@ -9,8 +9,9 @@ $("#search_btn").click(function() {
     //variables for the OpenWeather API URL
     var apiLink = 'https://api.openweathermap.org/data/2.5/weather';
     var apiKey = '9a5f03993c0c409d4e9878c8a9db6330';
+    var apiUnits = '&units=imperial';
     var zipInput = $('#zipCode').val();
-    var apiURL = apiLink + '?zip=' + zipInput + '&appid=' + apiKey;
+    var apiURL = apiLink + '?zip=' + zipInput + '&appid=' + apiKey + apiUnits;
     
     console.log(apiURL);
     
@@ -23,6 +24,10 @@ $("#search_btn").click(function() {
             var temp = responseFromOW.main.temp;
             var city = responseFromOW.name;
             var description = responseFromOW.weather[0].description;
+        
+        $('#city').html(city);
+        $('#temp').html(temp);
+        $('#weather_background').css("background-image", "url(images/partly-cloudy.jpeg)")
     });
     
     
